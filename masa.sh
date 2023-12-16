@@ -90,8 +90,6 @@ case "$response" in
         ;;
 esac
 }
-cd $HOME
-}
 # Actions
 sudo apt install wget -y &>/dev/null
 cd
