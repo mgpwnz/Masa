@@ -74,9 +74,7 @@ sudo systemctl restart systemd-journald &>/dev/null
 sudo systemctl daemon-reload &>/dev/null
 sudo systemctl enable masa &>/dev/null
 sudo systemctl restart masa &>/dev/null
-#key
-key=cat /root/.masa/masa_oracle_key.ecdsa &>/dev/null
-echo $key
+
 
 }
 uninstall() {
@@ -97,8 +95,7 @@ case "$response" in
 esac
 }
 stake() {
-cd $HOME/masa-oracle-go-testnet &&\
-./masa-node --stake 100
+$HOME/masa-oracle-go-testnet/masa-node --stake 100
 cd $HOME
 }
 # Actions
