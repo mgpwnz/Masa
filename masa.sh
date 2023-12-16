@@ -57,9 +57,12 @@ After=network.target
 [Service]
 Type=simple
 User=root
-WorkingDirectory=/root/
+WorkingDirectory=/root/masa-oracle-go-testnet/
 ExecStart=/root/masa-oracle-go-testnet/masa-node \
-        --start
+        --port=4001 \
+        --udp=true \
+        --tcp=false \
+        --start=true
 Restart=always
 RestartSec=10
 LimitNOFILE=10000
@@ -71,6 +74,9 @@ sudo systemctl restart systemd-journald &>/dev/null
 sudo systemctl daemon-reload &>/dev/null
 sudo systemctl enable masa &>/dev/null
 sudo systemctl restart masa &>/dev/null
+#key
+key=cat /root/.masa/masa_oracle_key.ecdsa &>/dev/null
+echo $key
 
 }
 uninstall() {
