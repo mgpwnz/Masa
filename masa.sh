@@ -13,10 +13,6 @@ while test $# -gt 0; do
             function="uninstall"
             shift
             ;;
-	    -st|--stake)
-            function="update"
-            shift
-            ;;
         *|--)
 		break
 		;;
@@ -94,8 +90,6 @@ case "$response" in
         ;;
 esac
 }
-stake() {
-$HOME/masa-oracle-go-testnet/masa-node --stake 100
 cd $HOME
 }
 # Actions
