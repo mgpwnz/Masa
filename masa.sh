@@ -77,18 +77,6 @@ sudo systemctl restart masa &>/dev/null
 
 
 }
-update{
-cd $HOME/masa-oracle-go-testnet
-git update
-sudo systemctl restart masa &>/dev/null
-echo Masa Update!
-cd
-}
-
-
-
-
-
 uninstall() {
 read -r -p "You really want to delete the node? [y/N] " response
 case "$response" in
