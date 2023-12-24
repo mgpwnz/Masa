@@ -9,6 +9,10 @@ while test $# -gt 0; do
             function="install"
             shift
             ;;
+        -up|--update)
+            function="update"
+            shift
+            ;;
         -un|--uninstall)
             function="uninstall"
             shift
@@ -55,7 +59,7 @@ Type=simple
 User=root
 WorkingDirectory=/root/masa-oracle-go-testnet/
 ExecStart=/root/masa-oracle-go-testnet/masa-node \
-        -port=8081 \
+        -port=8080 \
         --udp=true \
         --tcp=false \
         --start=true
@@ -73,6 +77,18 @@ sudo systemctl restart masa &>/dev/null
 
 
 }
+update{
+cd $HOME/masa-oracle-go-testnet
+git update
+sudo systemctl restart masa &>/dev/null
+echo Masa Update!
+cd
+}
+
+
+
+
+
 uninstall() {
 read -r -p "You really want to delete the node? [y/N] " response
 case "$response" in
