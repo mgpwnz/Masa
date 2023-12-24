@@ -9,10 +9,6 @@ while test $# -gt 0; do
             function="install"
             shift
             ;;
-        -up|--update)
-            function="update"
-            shift
-            ;;
         -un|--uninstall)
             function="uninstall"
             shift
